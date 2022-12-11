@@ -1,8 +1,12 @@
-from fastapi import APIRouter, Response
+from fastapi import APIRouter
+from fastapi.responses import JSONResponse
+
+from src.models import Genre
 
 genres_router = APIRouter()
 
 
 @genres_router.get("/genres")
-async def home():
-    return Response(status_code=200)
+async def list_all_genres():
+    genres = [genre.as_dict for genre in Genre.query().all()]
+    return JSONResponse(content=genres)

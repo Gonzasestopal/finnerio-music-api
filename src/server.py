@@ -1,5 +1,7 @@
 from fastapi import FastAPI
+
 from api.genres import genres_router
+
 
 def init_routers(app_: FastAPI) -> None:
     app_.include_router(genres_router)
