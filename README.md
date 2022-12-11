@@ -15,12 +15,19 @@ Install dependencies
 
 Copy and replace .env.example
 
+Make sure psql is running
 
 ## Usage
 
 Run server
 
 - python app.py
+
+## Docker
+
+Run docker compose command
+
+- docker-compose up --build
 
 
 ## Support

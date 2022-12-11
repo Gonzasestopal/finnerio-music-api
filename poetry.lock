@@ -34,7 +34,10 @@ python-versions = ">=3.7.2"
 [package.dependencies]
 lazy-object-proxy = ">=1.4.0"
 typing-extensions = {version = ">=3.10", markers = "python_version < \"3.10\""}
-wrapt = {version = ">=1.11,<2", markers = "python_version < \"3.11\""}
+wrapt = [
+    {version = ">=1.11,<2", markers = "python_version < \"3.11\""},
+    {version = ">=1.14,<2", markers = "python_version >= \"3.11\""},
+]
 
 [[package]]
 name = "attrs"
@@ -277,7 +280,7 @@ virtualenv = ">=20.0.8"
 name = "psycopg2-binary"
 version = "2.9.5"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -535,8 +538,8 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "3.9"
-content-hash = "79ec4ae2b7e33ef09bd7a1e971fe10f76c61c4c83aef98202359ee6945254159"
+python-versions = "^3.9"
+content-hash = "8f21a4a52e3e4cb3ebbb1476c48bc0d5ff20aae2bb1d54953ef02371a155ef6a"
 
 [metadata.files]
 anyio = []

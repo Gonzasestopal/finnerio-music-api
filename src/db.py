@@ -2,16 +2,18 @@ from sqlalchemy import create_engine
 from sqlalchemy.engine.url import URL
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from src.settings import config
+from src import settings
 
 db_settings = {
     'drivername': 'postgresql+psycopg2',
-    'database': config.DB_NAME,
-    'username': config.DB_USERNAME,
-    'password': config.DB_PASSWORD,
-    'port': config.DB_PORT,
-    'host': config.DB_HOST,
+    'database': settings.DB_NAME,
+    'username': settings.DB_USERNAME,
+    'password': settings.DB_PASSWORD,
+    'port': settings.DB_PORT,
+    'host': settings.DB_HOST,
 }
+
+print(db_settings, '***')
 
 engine = create_engine(URL(**db_settings))
 
