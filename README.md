@@ -9,13 +9,15 @@ Music web scrapping project API.
 - [Support](#support)
 - [Contributing](#contributing)
 
+## Prerequisites
+
+Make sure your DB is up and running.
+
 ## Installation
 
 Install dependencies
 
 Copy and replace .env.example
-
-Make sure psql is running
 
 ## Usage
 
@@ -25,10 +27,13 @@ Run server
 
 ## Docker
 
-Run docker compose command
+Build app image
 
-- docker-compose up --build
+- docker build -t finnerio-music-api .
 
+Run image using compose
+
+- docker run -e ... --net=backend -p 8000:8000 finnerio-music-api
 
 ## Support
 
