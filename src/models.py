@@ -33,11 +33,13 @@ class Subgenre(Base):
     __tablename__ = 'subgenres'
 
     name = Column(String)
+    genre_id = Column(Integer, ForeignKey(Genre.id))
 
     @property
     def as_dict(self):
         return {
             'name': self.name,
+            'genre_id': self.genre_id
         }
 
 class Artist(Base):
