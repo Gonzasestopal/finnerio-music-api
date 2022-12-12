@@ -7,8 +7,8 @@ artists_router = APIRouter()
 
 
 @artists_router.get("/artists/{artist_id}/albums")
-async def get_artists(artist_id):
-    album = Album.query().filter(Artist.id == artist_id).first()
+async def get_albums_by_artist(artist_id):
+    album = Album.query().join(Artist, Artist.id == Album.artist_id).filter(Artist.id == artist_id).first()
 
     if not album:
         return HTTPException(status_code=404)
