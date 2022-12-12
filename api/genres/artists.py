@@ -19,20 +19,8 @@ async def get_albums_by_artist(artist_id):
 
 
 @artists_router.get("/artists")
-async def get_artists(song_id = None):
-    if not song_id:
-        artists = Artist.query().all()
+async def get_artists():
+    artists = Artist.query().all()
 
-        return JSONResponse(content=[artist.as_dict for artist in artists])
-
-    song = Song.query().filter(Song.id == song_id).first()
-    if not song:
-        return HTTPException(status_code=404)
-
-    artist = Artist.query().join(Song, Song.artist_id == Artist.id).filter(Artist.id == song.artist_id).first()
-
-    if not artist:
-        return HTTPException(status_code=404)
-
-    return JSONResponse(content=[artist.as_dict])
+    return JSONResponse(content=[artist.as_dict for artist in artists])
 
