@@ -8,12 +8,14 @@ artists_router = APIRouter()
 
 @artists_router.get("/artists/{artist_id}/albums")
 async def get_albums_by_artist(artist_id):
-    album = Album.query().join(Artist, Artist.id == Album.artist_id).filter(Artist.id == artist_id).first()
+    albums = Album.query().join(Artist, Artist.id == Album.artist_id).filter(Artist.id == artist_id).all()
 
-    if not album:
+    if not albums:
         return HTTPException(status_code=404)
 
-    return JSONResponse(content=album.as_dict)
+    albums = [album.as_dict for album in albums]
+
+    return JSONResponse(content=albums)
 
 
 @artists_router.get("/artists")
