@@ -22,13 +22,11 @@ class Genre(Base):
     __tablename__ = 'genres'
 
     name = Column(String)
-    href =  Column(String)
 
     @property
     def as_dict(self):
         return {
             'name': self.name,
-            'href': self.href,
         }
 
 

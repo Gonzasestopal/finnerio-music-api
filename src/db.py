@@ -13,8 +13,6 @@ db_settings = {
     'host': settings.DB_HOST,
 }
 
-print(db_settings, '***')
-
 engine = create_engine(URL(**db_settings))
 
 Session = scoped_session(sessionmaker(expire_on_commit=False))
