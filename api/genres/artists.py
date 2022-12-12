@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 
-from src.models import Album, Artist
+from src.models import Album, Artist, Song
 
 artists_router = APIRouter()
 
@@ -19,16 +19,20 @@ async def get_albums_by_artist(artist_id):
 
 
 @artists_router.get("/artists")
-async def get_artist_by_song(song_id = None):
-    album = Album.query().filter(Album.song_id == song_id).first()
+async def get_artists(song_id = None):
+    if not song_id:
+        artists = Artist.query().all()
 
-    if not album:
+        return JSONResponse(content=[artist.as_dict for artist in artists])
+
+    song = Song.query().filter(Song.id == song_id).first()
+    if not song:
         return HTTPException(status_code=404)
 
-    artist = Artist.query().filter(Album.id == album.id).first()
+    artist = Artist.query().join(Song, Song.artist_id == Artist.id).filter(Artist.id == song.artist_id).first()
 
     if not artist:
         return HTTPException(status_code=404)
 
-    return JSONResponse(content=artist.as_dict)
+    return JSONResponse(content=[artist.as_dict])
 
