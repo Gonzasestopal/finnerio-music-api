@@ -11,7 +11,7 @@ fastapi = "^0.88.0"
 uvicorn = {extras = ["standard"], version = "^0.20.0"}
 SQLAlchemy = "^1.4.45"
 psycopg2-binary = "^2.9.5"
-python-dotenv = "^0.10.5"
+python-dotenv = "^0.21.0"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"

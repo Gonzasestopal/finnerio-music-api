@@ -326,7 +326,7 @@ testutils = ["gitpython (>3)"]
 name = "python-dotenv"
 version = "0.21.0"
 description = "Read key-value pairs from a .env file and set them as environment variables"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -539,7 +539,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "8f21a4a52e3e4cb3ebbb1476c48bc0d5ff20aae2bb1d54953ef02371a155ef6a"
+content-hash = "3fa4f0d7cb38df24ec23e02efceef9b4adffc0c66274c72aca7659ad6f4b962f"
 
 [metadata.files]
 anyio = []
