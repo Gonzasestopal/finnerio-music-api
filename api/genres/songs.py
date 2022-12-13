@@ -11,7 +11,7 @@ def get_song(song_id):
     song = Song.query().filter(Song.id == song_id).first()
 
     if not song:
-        return HTTPException(status_code=404)
+        raise HTTPException(status_code=404)
 
     return JSONResponse(content=song.as_dict)
 

@@ -11,7 +11,7 @@ async def get_songs_by_album(album_id):
     songs = Song.query().join(Album, Album.id == Song.album_id).filter(Song.album_id == album_id).all()
 
     if not songs:
-        return HTTPException(status_code=404)
+        raise HTTPException(status_code=404)
 
     songs = [song.as_dict for song in songs]
 

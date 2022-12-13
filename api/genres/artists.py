@@ -11,7 +11,7 @@ async def get_albums_by_artist(artist_id):
     albums = Album.query().join(Artist, Artist.id == Album.artist_id).filter(Artist.id == artist_id).all()
 
     if not albums:
-        return HTTPException(status_code=404)
+        raise HTTPException(status_code=404)
 
     albums = [album.as_dict for album in albums]
 
@@ -23,7 +23,7 @@ async def find_artist(artist_id):
     artists = Artist.query().filter(Artist.id == artist_id).all()
 
     if not artists:
-        return HTTPException(status_code=404)
+        raise HTTPException(status_code=404)
 
     artist = [artist.as_dict for artist in artists]
 

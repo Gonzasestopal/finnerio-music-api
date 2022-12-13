@@ -22,7 +22,7 @@ async def get_artists_by_genre(genre_id):
     artists = Artist.query().join(Genre, Artist.genre_id == Genre.id).filter(Genre.id == genre_id).all()
 
     if not artists:
-        return HTTPException(status_code=404)
+        raise HTTPException(status_code=404)
 
     artists = [artist.as_dict for artist in artists]
 
