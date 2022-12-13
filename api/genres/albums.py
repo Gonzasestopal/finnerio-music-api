@@ -15,5 +15,11 @@ async def get_songs_by_album(album_id):
 
     songs = [song.as_dict for song in songs]
 
-
     return JSONResponse(content=songs)
+
+
+@albums_router.get("/albums")
+async def get_albums():
+    albums = Album.query().all()
+
+    return JSONResponse(content=[album.as_dict for album in albums])

@@ -14,3 +14,9 @@ def get_song(song_id):
         return HTTPException(status_code=404)
 
     return JSONResponse(content=song.as_dict)
+
+@songs_router.get("/songs")
+async def get_song():
+    songs = Song.query().all()
+
+    return JSONResponse(content=[song.as_dict for song in songs])

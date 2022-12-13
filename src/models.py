@@ -26,6 +26,7 @@ class Genre(Base):
     @property
     def as_dict(self):
         return {
+            'id': self.id,
             'name': self.name,
         }
 
@@ -51,6 +52,7 @@ class Artist(Base):
     @property
     def as_dict(self):
         return {
+            'id': self.id,
             'name': self.name,
             'genre_id': self.genre_id,
         }
@@ -66,6 +68,7 @@ class Album(Base):
     @property
     def as_dict(self):
         return {
+            'id': self.id,
             'name': self.name,
             'artist_id': self.artist_id,
             'genre_id': self.genre_id,
@@ -82,6 +85,7 @@ class Song(Base):
     @property
     def as_dict(self):
         return {
+            'id': self.id,
             'name': self.name,
             'artist_id': self.artist_id,
             'album_id': self.album_id,
